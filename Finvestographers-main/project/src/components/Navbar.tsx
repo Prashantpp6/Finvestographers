@@ -77,7 +77,7 @@ export default function Navbar() {
 
               {/* WhatsApp */}
               <a
-                href="https://wa.me/919XXXXXXXXX"
+                href="https://wa.me/918962692479"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="flex items-center gap-2 text-sm font-heading font-semibold text-white px-4 py-2 rounded-xl transition-all duration-200 hover:scale-105 wa-pulse"
@@ -123,7 +123,7 @@ export default function Navbar() {
               ))}
               <div className="pt-3 border-t border-[#DDE5F0] mt-2 space-y-3">
                 <a
-                  href="https://wa.me/919XXXXXXXXX"
+                  href="https://wa.me/918962692479"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="flex items-center justify-center gap-2 mx-4 py-3 rounded-xl text-white text-sm font-heading font-semibold"
@@ -143,7 +143,7 @@ export default function Navbar() {
 
       {/* Fixed WhatsApp button — mobile only */}
       <a
-        href="https://wa.me/919XXXXXXXXX"
+        href="https://wa.me/918962692479"
         target="_blank"
         rel="noopener noreferrer"
         className="fixed bottom-6 right-6 z-50 lg:hidden w-14 h-14 rounded-full flex items-center justify-center text-white shadow-lg wa-pulse"

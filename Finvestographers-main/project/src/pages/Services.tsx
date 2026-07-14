@@ -155,7 +155,7 @@ export default function ServicesPage() {
                       <Link to="/contact" className="btn-primary text-sm py-2.5 px-5">
                         Get Started <ArrowRight size={14} />
                       </Link>
-                      <a href="https://wa.me/919XXXXXXXXX" target="_blank" rel="noopener noreferrer"
+                      <a href="https://wa.me/918962692479" target="_blank" rel="noopener noreferrer"
                         className="inline-flex items-center gap-2 text-sm font-heading font-semibold px-5 py-2.5 rounded-xl text-white transition-all duration-200 hover:scale-105"
                         style={{ background: '#25D366', boxShadow: '0 4px 16px rgba(37,211,102,0.3)' }}>
                         <MessageCircle size={15} strokeWidth={2} />
@@ -186,7 +186,7 @@ export default function ServicesPage() {
             <Link to="/contact" className="btn-orange text-base px-8 py-4">
               Book Free Session <ArrowRight size={18} />
             </Link>
-            <a href="https://wa.me/919XXXXXXXXX" target="_blank" rel="noopener noreferrer"
+            <a href="https://wa.me/918962692479" target="_blank" rel="noopener noreferrer"
               className="inline-flex items-center gap-2 text-white font-heading font-semibold px-7 py-4 rounded-xl transition-colors"
               style={{ background: '#25D366', boxShadow: '0 4px 16px rgba(37,211,102,0.3)' }}>
               <MessageCircle size={18} strokeWidth={2} />WhatsApp Us

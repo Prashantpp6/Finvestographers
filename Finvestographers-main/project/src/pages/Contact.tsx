@@ -40,7 +40,7 @@ export default function Contact() {
                 </div>
                 <h2 className="text-xl font-heading font-bold text-[#00448B] mb-2">Option 1 — Chat on WhatsApp</h2>
                 <p className="text-[#5C7089] font-body text-sm mb-5">70%+ of our clients reach out first on WhatsApp. It's the fastest way to connect.</p>
-                <a href="https://wa.me/919XXXXXXXXX" target="_blank" rel="noopener noreferrer"
+                <a href="https://wa.me/918962692479" target="_blank" rel="noopener noreferrer"
                   className="inline-flex items-center justify-center gap-3 text-white font-heading font-semibold py-4 px-8 rounded-2xl transition-all hover:scale-105"
                   style={{ background: '#25D366', boxShadow: '0 4px 16px rgba(37,211,102,0.3)' }}>
                   <MessageCircle size={20} strokeWidth={2} />

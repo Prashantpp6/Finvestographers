@@ -46,7 +46,7 @@ export default function FAQ() {
             <div className="bg-white rounded-2xl border border-[#DDE5F0] p-6" style={{ boxShadow: '0 4px 20px rgba(0,68,139,0.06)' }}>
               <p className="font-heading font-bold text-[#00448B] text-lg mb-2">Still have questions?</p>
               <p className="text-[#5C7089] text-sm font-body mb-4">Book a free 20-minute call. No obligation. Just clarity.</p>
-              <a href="https://wa.me/919XXXXXXXXX" target="_blank" rel="noopener noreferrer"
+              <a href="https://wa.me/918962692479" target="_blank" rel="noopener noreferrer"
                 className="flex items-center gap-2 text-sm font-heading font-semibold text-white px-4 py-2 rounded-xl transition-all duration-200 hover:scale-105"
                 style={{ background: '#25D366', boxShadow: '0 4px 16px rgba(37,211,102,0.3)' }}>
                 Ask Us on WhatsApp

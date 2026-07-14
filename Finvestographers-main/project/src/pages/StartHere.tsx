@@ -174,7 +174,7 @@ export default function StartHere() {
             One call. 20 minutes. No obligation. You'll walk away knowing exactly where you stand.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <a href="https://wa.me/919XXXXXXXXX" target="_blank" rel="noopener noreferrer"
+            <a href="https://wa.me/918962692479" target="_blank" rel="noopener noreferrer"
               className="flex items-center justify-center gap-2 text-white font-heading font-semibold px-8 py-4 rounded-xl transition-all hover:scale-105"
               style={{ background: '#25D366', boxShadow: '0 4px 16px rgba(37,211,102,0.3)' }}>
               <MessageCircle size={20} strokeWidth={2} />

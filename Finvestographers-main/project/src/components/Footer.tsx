@@ -59,7 +59,7 @@ export default function Footer() {
                 aria-label="Instagram">
                 <Instagram size={16} className="text-white" />
               </a>
-              <a href="https://wa.me/919XXXXXXXXX" target="_blank" rel="noopener noreferrer"
+              <a href="https://wa.me/918962692479" target="_blank" rel="noopener noreferrer"
                 className="w-9 h-9 rounded-xl flex items-center justify-center transition-colors"
                 style={{ background: 'rgba(255,255,255,0.08)' }}
                 onMouseEnter={(e) => (e.currentTarget.style.background = '#25D366')}

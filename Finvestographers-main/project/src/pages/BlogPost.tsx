@@ -86,7 +86,7 @@ export default function BlogPost() {
               <Link to="/contact" className="btn-cta text-base px-7 py-3.5">
                 Book Free Review <ArrowRight size={16} />
               </Link>
-              <a href="https://wa.me/919XXXXXXXXX" target="_blank" rel="noopener noreferrer"
+              <a href="https://wa.me/918962692479" target="_blank" rel="noopener noreferrer"
                 className="flex items-center gap-2 font-heading font-semibold px-7 py-3.5 rounded-xl transition-colors"
                 style={{ background: '#25D366', color: 'white' }}>
                 <MessageCircle size={16} strokeWidth={2} />WhatsApp Us
