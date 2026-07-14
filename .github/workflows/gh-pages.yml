@@ -26,16 +26,16 @@ jobs:
           node-version: '20'
       - name: Install dependencies
         run: npm ci
-        working-directory: ./project
+        working-directory: ./Finvestographers-main/project
       - name: Build
         run: npm run build
-        working-directory: ./project
+        working-directory: ./Finvestographers-main/project
       - name: Setup Pages
         uses: actions/configure-pages@v5
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
         with:
-          path: ./project/dist
+          path: ./Finvestographers-main/project/dist
 
   deploy:
     needs: build
