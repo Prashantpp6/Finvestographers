@@ -20,7 +20,7 @@ export default function GoalsSection() {
             Every Goal Has a Plan
           </h2>
           <p className="text-lg text-[#5C7089] font-body max-w-2xl mx-auto text-center">
-            <span>Whatever your goal, we'll build a specific investment strategy designed around it.</span>
+            <span className="block whitespace-nowrap">Whatever your goal, we'll build a specific investment strategy designed around it.</span>
             <span className="block">Not a generic portfolio.</span>
           </p>
         </div>

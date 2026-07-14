@@ -40,7 +40,7 @@ export default function Footer() {
                 />
               </div>
                 <div>
-                <div className="font-extrabold text-base leading-none">
+                <div className="font-extrabold text-base leading-none italic">
                   <span className="text-white">FINVESTO</span>
                   <span style={{ color: '#FF6100' }}>GRAPHERS</span>
                 </div>

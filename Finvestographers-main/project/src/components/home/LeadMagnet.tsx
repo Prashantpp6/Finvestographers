@@ -16,8 +16,8 @@ export default function LeadMagnet() {
               Free Assessment
             </p>
             <h2 className="text-display-md font-heading font-extrabold text-white mb-5 leading-tight">
-              Discover Hidden Gaps In{' '}
-              <span style={{ color: '#FF6100' }}>Your Financial Plan</span>
+              <span className="block">Discover Hidden Gaps In</span>
+              <span className="block" style={{ color: '#FF6100' }}>Your Financial Plan</span>
             </h2>
             <p className="text-blue-200 text-lg font-body leading-relaxed mb-8">
               Get a free financial assessment and uncover opportunities to optimise your investments.

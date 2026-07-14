@@ -74,10 +74,19 @@ export default function Contact() {
                             style={{ accentColor: '#00448B' }} />
                           <span className="text-sm font-body text-[#0F1C2E]">{slot}</span>
                         </label>
-                      <div className="flex flex-col items-center justify-center py-4">
-                        <p className="text-xs font-body mb-1" style={{ color: '#5C7089' }}>AMFI Registered MFD</p>
-                        <p className="font-heading font-bold text-[#00448B]">ARN-345397</p>
-                      </div>
+                      ))}
+                    </div>
+                    <div className="flex flex-col items-center justify-center py-4">
+                      <p className="text-xs font-body mb-1" style={{ color: '#5C7089' }}>AMFI Registered MFD</p>
+                      <p className="font-heading font-bold text-[#00448B]">ARN-345397</p>
+                    </div>
+                    <button type="submit" className="btn-primary w-full justify-center py-3">
+                      Request Callback <ArrowRight size={15} />
+                    </button>
+                  </form>
+                )}
+              </div>
+
               <div className="card">
                 <h2 className="text-xl font-heading font-bold text-[#00448B] mb-2">Option 3 — Book a Free 20-Min Consultation</h2>
                 <p className="text-[#5C7089] font-body text-sm mb-5">Prefer a scheduled discussion? Choose a convenient slot. Video or phone — your choice.</p>

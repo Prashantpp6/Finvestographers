@@ -42,18 +42,14 @@ export default function Navbar() {
             <Link to="/" className="flex items-center gap-3 flex-shrink-0 min-w-0">
               <img
                 src={import.meta.env.BASE_URL + 'Logo_transparent_FINVESTOGRAPHERS.png'}
-                alt="Finvestographers"
+                alt="Finvestographers Logo"
                 className="h-9 w-9 object-contain flex-shrink-0"
               />
-              <div className="flex flex-col leading-none">
-                <span className="font-brand font-extrabold text-[#00448B] text-base sm:text-lg tracking-tight leading-none">
-                  FINVESTO
-                  <span className="text-[#FF6100]">GRAPHERS</span>
-                </span>
-                <span className="text-[#5C7089] text-[9px] font-body tracking-[0.1em] uppercase leading-none mt-0.5 hidden sm:block">
-                  AMFI Registered MFD
-                </span>
-              </div>
+              <img
+                src={import.meta.env.BASE_URL + 'logo_text.png'}
+                alt="Finvestographers"
+                className="h-[18px] sm:h-[20px] md:h-[22px] object-contain flex-shrink-0"
+              />
             </Link>
 
             {/* Desktop nav */}

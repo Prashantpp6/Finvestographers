@@ -19,7 +19,7 @@ const services = [
     id: 'mutual-funds-sip',
     title: 'Mutual Funds & SIP',
     tagline: 'I want my money to work harder than my salary.',
-    description: "Whether you're starting with \u20B95,000/month or investing larger amounts, we'll create a strategy designed around your goals — not a commission chart.",
+    description: "Whether you're starting with ₹5,000/month or investing larger amounts, we'll create a strategy designed around your goals — not a commission chart.",
     benefits: ['Curated fund selection (not 500 options)', 'SIP structure matched to your goals', 'Regular rebalancing reviews', 'Exit strategy for underperformers'],
     bg: '#FFF3EB', iconBg: '#FF6100',
   },
