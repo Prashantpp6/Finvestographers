@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import { ArrowRight, TrendingUp, Target, CheckCircle } from 'lucide-react';
+import { openConsultationModal } from '../../lib/enquiry';
 import {
   AreaChart, Area, XAxis, YAxis, Tooltip, ResponsiveContainer,
   PieChart, Pie, Cell,
@@ -98,10 +99,10 @@ export default function Hero() {
             </div>
 
             <div className="flex flex-wrap gap-3">
-              <Link to="/contact" className="btn-orange text-base px-8 py-4">
+              <button type="button" onClick={() => openConsultationModal({ interest: 'Financial Planning', source: 'hero' })} className="btn-orange text-base px-8 py-4">
                 Book Free Consultation
                 <ArrowRight size={18} />
-              </Link>
+              </button>
               <Link to="/start-here" className="btn-outline text-base px-7 py-4">
                 Start Here
               </Link>

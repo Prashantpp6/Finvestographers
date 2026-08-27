@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import { Send, CheckCircle } from 'lucide-react';
+import { submitEnquiry } from '../../lib/enquiry';
 
 const goals = ['Start my first SIP', 'Review my existing investments', 'Plan for retirement', 'Save more tax', 'Review my insurance', "Plan for child's education", 'Other'];
 
@@ -46,7 +47,21 @@ export default function LeadMagnet() {
             ) : (
               <>
                 <h3 className="font-heading font-bold text-[#00448B] text-xl mb-6">Get Your Free Financial Assessment</h3>
-                <form onSubmit={(e) => { e.preventDefault(); setSubmitted(true); }} className="space-y-4">
+                <form onSubmit={async (e) => {
+                  e.preventDefault();
+                  await submitEnquiry({
+                    fullName: form.name,
+                    mobile: form.phone,
+                    email: form.email,
+                    city: '',
+                    occupation: '',
+                    interest: form.goal,
+                    investmentAmount: '',
+                    message: 'Free assessment request',
+                    source: 'lead-magnet',
+                  });
+                  setSubmitted(true);
+                }} className="space-y-4">
                   {[
                     { label: 'Your Name', type: 'text', placeholder: 'Rahul Sharma', key: 'name' },
                     { label: 'Phone Number', type: 'tel', placeholder: 'Mob- 8962692479', key: 'phone' },

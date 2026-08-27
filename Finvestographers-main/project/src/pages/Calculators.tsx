@@ -1,10 +1,11 @@
 import { useState, useMemo, useEffect } from 'react';
-import { Link } from 'react-router-dom';
+import { useSearchParams } from 'react-router-dom';
 import {
   AreaChart, Area, XAxis, YAxis, Tooltip, CartesianGrid, ResponsiveContainer,
   PieChart, Pie, Cell, Legend, BarChart, Bar
 } from 'recharts';
 import { ArrowRight, AlertTriangle, TrendingDown, TrendingUp, Lock, Target, Landmark, Sparkles } from 'lucide-react';
+import { openConsultationModal } from '../lib/enquiry';
 
 function formatIndianCurrency(v: number) {
   const abs = Math.abs(v);
@@ -1004,9 +1005,9 @@ function CostOfDelaySIPCalc() {
         <p className="text-sm font-body mb-6 opacity-90">
           Let's create an investment plan that works for your goals and timeline.
         </p>
-        <Link to="/contact" className="inline-flex items-center gap-2 bg-white text-[#FF6100] px-6 py-3 rounded-lg font-heading font-bold text-sm hover:bg-blue-50 transition-colors">
+        <button type="button" onClick={() => openConsultationModal({ source: 'calculator-page' })} className="inline-flex items-center gap-2 bg-white text-[#FF6100] px-6 py-3 rounded-lg font-heading font-bold text-sm hover:bg-blue-50 transition-colors">
           Book Free Consultation <ArrowRight size={16} />
-        </Link>
+        </button>
       </div>
     </div>
   );
@@ -1137,15 +1138,26 @@ function WealthGrowthCalc() {
 }
 
 export default function Calculators() {
-  const [activeTab, setActiveTab] = useState(0);
+  const [searchParams, setSearchParams] = useSearchParams();
+  const initialTab = searchParams.get('tab');
+  const tabIndexMap: Record<string, number> = { track: 0, growth: 1, fd: 2, lump: 3, retirement: 4, delay: 5 };
+  const [activeTab, setActiveTab] = useState(initialTab ? (tabIndexMap[initialTab] ?? 0) : 0);
   const tabs = [
-    { label: 'Am I On Track?', icon: TrendingUp },
-    { label: 'Wealth Growth', icon: Sparkles },
-    { label: 'FD Real Return', icon: TrendingDown },
-    { label: 'SIP vs Lump Sum', icon: TrendingUp },
-    { label: 'Retirement Corpus', icon: Landmark },
-    { label: 'Cost of Delay', icon: TrendingDown },
+    { label: 'Am I On Track?', icon: TrendingUp, key: 'track' },
+    { label: 'Wealth Growth', icon: Sparkles, key: 'growth' },
+    { label: 'FD Real Return', icon: TrendingDown, key: 'fd' },
+    { label: 'SIP vs Lump Sum', icon: TrendingUp, key: 'lump' },
+    { label: 'Retirement Corpus', icon: Landmark, key: 'retirement' },
+    { label: 'Cost of Delay', icon: TrendingDown, key: 'delay' },
   ];
+
+  useEffect(() => {
+    const tabKey = tabs[activeTab]?.key;
+    if (!tabKey) return;
+    const params = new URLSearchParams(searchParams);
+    params.set('tab', tabKey);
+    setSearchParams(params, { replace: true });
+  }, [activeTab]);
 
   return (
     <main className="pt-24">
@@ -1200,9 +1212,9 @@ export default function Calculators() {
           <p className="text-blue-200 font-body text-lg max-w-xl mx-auto mb-8">
             These tools show you where you stand. A 20-minute call shows you what to do about it.
           </p>
-          <Link to="/contact" className="btn-orange text-base px-8 py-4">
+          <button type="button" onClick={() => openConsultationModal({ source: 'calculator-page' })} className="btn-orange text-base px-8 py-4">
             Book Free Portfolio Review <ArrowRight size={18} />
-          </Link>
+          </button>
         </div>
       </section>
     </main>

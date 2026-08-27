@@ -17,9 +17,10 @@ export default function About() {
             <div className="relative rounded-3xl overflow-hidden aspect-[4/5] max-w-md mx-auto lg:mx-0"
               style={{ background: 'linear-gradient(135deg, #00448B 0%, #002A62 100%)' }}>
               <img
-                src="https://images.pexels.com/photos/3183150/pexels-photo-3183150.jpeg?auto=compress&cs=tinysrgb&w=800"
-                alt="Financial Advisor"
-                className="w-full h-full object-cover mix-blend-overlay opacity-50"
+                src="https://images.unsplash.com/photo-1556157382-97eda2d62296?auto=format&fit=crop&w=900&q=80"
+                alt="Financial advisor meeting with client in a premium office"
+                className="w-full h-full object-cover mix-blend-overlay opacity-60"
+                loading="lazy"
               />
               <div className="absolute inset-0 p-8 flex flex-col justify-end">
                 <div className="rounded-2xl p-5" style={{ background: 'rgba(255,255,255,0.08)', backdropFilter: 'blur(12px)', border: '1px solid rgba(255,255,255,0.15)' }}>
@@ -100,7 +101,7 @@ export default function About() {
                 </div>
               ))}
             </div>
-            <Link to="/contact" className="btn-primary">
+            <Link to="/calculators?tab=retirement" className="btn-primary">
               Our Approach <ArrowRight size={16} />
             </Link>
           </div>

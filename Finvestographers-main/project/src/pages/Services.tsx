@@ -1,8 +1,8 @@
-import { Link } from 'react-router-dom';
 import {
   DollarSign, TrendingUp, Umbrella, Building2, Lock,
   Rocket, PieChart, Users, ArrowRight, CheckCircle, MessageCircle, FileText
 } from 'lucide-react';
+import { openConsultationModal } from '../lib/enquiry';
 
 const services = [
   {
@@ -152,9 +152,9 @@ export default function ServicesPage() {
                     </div>
 
                     <div className="flex flex-wrap gap-3">
-                      <Link to="/contact" className="btn-primary text-sm py-2.5 px-5">
+                      <button type="button" onClick={() => openConsultationModal({ source: 'services-page' })} className="btn-primary text-sm py-2.5 px-5">
                         Get Started <ArrowRight size={14} />
-                      </Link>
+                      </button>
                       <a href="https://wa.me/918962692479" target="_blank" rel="noopener noreferrer"
                         className="inline-flex items-center gap-2 text-sm font-heading font-semibold px-5 py-2.5 rounded-xl text-white transition-all duration-200 hover:scale-105"
                         style={{ background: '#25D366', boxShadow: '0 4px 16px rgba(37,211,102,0.3)' }}>
@@ -183,9 +183,9 @@ export default function ServicesPage() {
             Sometimes the biggest problem isn't lack of money. It's lack of direction. Let's find yours.
           </p>
           <div className="flex flex-wrap justify-center gap-4">
-            <Link to="/contact" className="btn-orange text-base px-8 py-4">
+            <button type="button" onClick={() => openConsultationModal({ source: 'services-page' })} className="btn-orange text-base px-8 py-4">
               Book Free Session <ArrowRight size={18} />
-            </Link>
+            </button>
             <a href="https://wa.me/918962692479" target="_blank" rel="noopener noreferrer"
               className="inline-flex items-center gap-2 text-white font-heading font-semibold px-7 py-4 rounded-xl transition-colors"
               style={{ background: '#25D366', boxShadow: '0 4px 16px rgba(37,211,102,0.3)' }}>

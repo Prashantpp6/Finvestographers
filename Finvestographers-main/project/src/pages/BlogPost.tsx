@@ -1,6 +1,7 @@
 import { useParams, Link, Navigate } from 'react-router-dom';
 import { Clock, ArrowLeft, ArrowRight, MessageCircle } from 'lucide-react';
 import { blogPosts } from '../data/blogPosts';
+import { openConsultationModal } from '../lib/enquiry';
 
 const categoryStyles: Record<string, { bg: string; color: string }> = {
   'SIP Basics': { bg: '#FFF3EB', color: '#FF6100' },
@@ -83,9 +84,9 @@ export default function BlogPost() {
             <h3 className="text-2xl font-heading font-extrabold text-white mb-3">Book a free 20-min portfolio review</h3>
             <p className="text-blue-200 font-body mb-6">No sales pitch. Just your numbers, laid out clearly.</p>
             <div className="flex flex-wrap justify-center gap-4">
-              <Link to="/contact" className="btn-cta text-base px-7 py-3.5">
+              <button type="button" onClick={() => openConsultationModal({ source: 'blog-post' })} className="btn-cta text-base px-7 py-3.5">
                 Book Free Review <ArrowRight size={16} />
-              </Link>
+              </button>
               <a href="https://wa.me/918962692479" target="_blank" rel="noopener noreferrer"
                 className="flex items-center gap-2 font-heading font-semibold px-7 py-3.5 rounded-xl transition-colors"
                 style={{ background: '#25D366', color: 'white' }}>

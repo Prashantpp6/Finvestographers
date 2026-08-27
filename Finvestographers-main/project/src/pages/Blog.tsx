@@ -2,6 +2,7 @@ import { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { Clock, ArrowRight } from 'lucide-react';
 import { blogPosts } from '../data/blogPosts';
+import { openConsultationModal } from '../lib/enquiry';
 
 const categories = ['All', 'SIP Basics', 'Personal Finance', 'Insurance', 'Market Updates', 'Beginners'];
 
@@ -94,9 +95,9 @@ export default function Blog() {
           <p className="text-blue-200 font-body text-lg max-w-xl mx-auto mb-8">
             Book a free 20-minute portfolio review. We'll apply what's in these articles to your actual situation.
           </p>
-          <Link to="/contact" className="btn-cta text-base px-8 py-4">
+          <button type="button" onClick={() => openConsultationModal({ source: 'blog-page' })} className="btn-cta text-base px-8 py-4">
             Book Free Portfolio Review <ArrowRight size={18} />
-          </Link>
+          </button>
         </div>
       </section>
     </main>

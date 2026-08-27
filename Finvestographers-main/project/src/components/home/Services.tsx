@@ -1,4 +1,5 @@
 import { Link } from 'react-router-dom';
+import { openConsultationModal } from '../../lib/enquiry';
 import {
   DollarSign, TrendingUp, Umbrella, Building2, Lock,
   Rocket, PieChart, LayoutGrid, Users, ArrowRight
@@ -12,6 +13,8 @@ const services = [
     description: "We'll map your income, expenses, liabilities, and investments into a clear roadmap while legally optimizing your tax liabilities to maximize surplus wealth.",
     cta: 'Show Me My Financial Blind Spots',
     bg: '#EBF2FA', iconBg: '#00448B', iconColor: 'white',
+    calculatorTab: 'track',
+    blogSlug: 'salary-12-lakh-month-end-tight',
   },
   {
     icon: TrendingUp,
@@ -20,6 +23,8 @@ const services = [
     description: "Whether you're starting with ₹5,000/month or investing larger amounts, we'll create a strategy designed around your goals.",
     cta: 'Am I Investing Efficiently?',
     bg: '#FFF3EB', iconBg: '#FF6100', iconColor: 'white',
+    calculatorTab: 'growth',
+    blogSlug: 'sip-started-at-27-vs-32',
   },
   {
     icon: Umbrella,
@@ -28,6 +33,8 @@ const services = [
     description: "Discover how much you'll actually need, whether you're on track, and what adjustments can improve your future lifestyle.",
     cta: 'Can I Retire Comfortably?',
     bg: '#F0FDF4', iconBg: '#16A34A', iconColor: 'white',
+    calculatorTab: 'retirement',
+    blogSlug: 'sip-started-at-27-vs-32',
   },
   {
     icon: Users,
@@ -36,6 +43,8 @@ const services = [
     description: 'Term insurance, health insurance, personal accident, business protection and other risk-management solutions.',
     cta: 'Do I Have Enough Protection?',
     bg: '#F8F4FF', iconBg: '#7C3AED', iconColor: 'white',
+    calculatorTab: 'track',
+    blogSlug: 'company-cover-50-lakh-not-enough',
   },
   {
     icon: Building2,
@@ -44,6 +53,8 @@ const services = [
     description: 'Explore funding options while keeping long-term financial goals in focus.',
     cta: "What's My Smartest Borrowing Option?",
     bg: '#FFF8F0', iconBg: '#D97706', iconColor: 'white',
+    calculatorTab: 'fd',
+    blogSlug: 'salary-12-lakh-month-end-tight',
   },
   {
     icon: Lock,
@@ -52,6 +63,8 @@ const services = [
     description: 'For investors seeking stability, predictable income and portfolio balance.',
     cta: 'Is My Money Losing To Inflation?',
     bg: '#F0F4F8', iconBg: '#475569', iconColor: 'white',
+    calculatorTab: 'fd',
+    blogSlug: 'salary-12-lakh-month-end-tight',
   },
   {
     icon: Rocket,
@@ -60,6 +73,8 @@ const services = [
     description: 'Evaluate select pre-IPO opportunities and understand both the potential rewards and risks before investing.',
     cta: 'What Opportunities Am I Missing?',
     bg: '#FFF0F0', iconBg: '#DC2626', iconColor: 'white',
+    calculatorTab: 'growth',
+    blogSlug: 'sip-started-at-27-vs-32',
   },
   {
     icon: PieChart,
@@ -68,6 +83,8 @@ const services = [
     description: 'Review existing mutual funds, insurance policies, fixed-income products and overall asset allocation.',
     cta: 'Am I Actually On Track?',
     bg: '#F0FFFE', iconBg: '#0891B2', iconColor: 'white',
+    calculatorTab: 'track',
+    blogSlug: 'three-questions-before-first-sip',
   },
   {
     icon: LayoutGrid,
@@ -77,6 +94,8 @@ const services = [
     cta: 'Book A Free 20-Min Financial Reality Check',
     bg: 'linear-gradient(135deg, #00448B 0%, #002A62 100%)', iconBg: 'rgba(255,255,255,0.15)', iconColor: 'white',
     dark: true,
+    calculatorTab: 'track',
+    blogSlug: 'salary-12-lakh-month-end-tight',
   },
 ];
 
@@ -122,14 +141,22 @@ export default function Services() {
                 {svc.description}
               </p>
 
-              <Link
-                to="/contact"
-                className={`inline-flex items-center gap-1.5 text-sm font-heading font-semibold transition-all duration-200
-                  ${svc.dark ? 'text-[#FF6100]' : 'text-[#00448B] hover:text-[#FF6100]'}`}
-              >
-                {svc.cta}
-                <ArrowRight size={13} className="group-hover:translate-x-1 transition-transform" />
-              </Link>
+              <div className="flex flex-wrap gap-3">
+                <Link
+                  to={`/calculators?tab=${svc.calculatorTab}`}
+                  className={`inline-flex items-center gap-1.5 text-sm font-heading font-semibold transition-all duration-200
+                    ${svc.dark ? 'text-[#FF6100]' : 'text-[#00448B] hover:text-[#FF6100]'}`}
+                >
+                  {svc.cta}
+                  <ArrowRight size={13} className="group-hover:translate-x-1 transition-transform" />
+                </Link>
+                <Link to={`/blog/${svc.blogSlug}`} className={`inline-flex items-center gap-1.5 rounded-full px-3 py-1.5 text-xs font-heading font-semibold transition-all duration-200 ${svc.dark ? 'bg-white/10 text-white' : 'bg-[#F7F9FC] text-[#00448B]'}`}>
+                  Learn More
+                </Link>
+                <button type="button" onClick={() => openConsultationModal({ interest: svc.title, source: 'services-section' })} className={`inline-flex items-center gap-1.5 rounded-full px-3 py-1.5 text-xs font-heading font-semibold transition-all duration-200 ${svc.dark ? 'bg-[#FF6100] text-white' : 'bg-[#FFF3EB] text-[#FF6100]'}`}>
+                  Try Free
+                </button>
+              </div>
             </div>
           ))}
         </div>

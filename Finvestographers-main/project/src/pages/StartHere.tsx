@@ -1,5 +1,6 @@
 import { Link } from 'react-router-dom';
 import { CheckCircle, ArrowRight, AlertTriangle, MessageCircle, TrendingUp, Shield, Clock } from 'lucide-react';
+import { openConsultationModal } from '../lib/enquiry';
 
 const questions = [
   {
@@ -180,9 +181,9 @@ export default function StartHere() {
               <MessageCircle size={20} strokeWidth={2} />
               Start on WhatsApp
             </a>
-            <Link to="/contact" className="btn-cta text-base px-8 py-4 justify-center">
+            <button type="button" onClick={() => openConsultationModal({ source: 'start-here' })} className="btn-cta text-base px-8 py-4 justify-center">
               Book a 20-Min Call <ArrowRight size={18} />
-            </Link>
+            </button>
           </div>
           <div className="mt-10 flex flex-wrap justify-center gap-6">
             {['No sales pitch', 'No obligation', 'Callback within 4 hours'].map((text) => (

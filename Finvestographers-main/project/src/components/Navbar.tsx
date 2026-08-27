@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import { Menu, X, MessageCircle } from 'lucide-react';
+import { openConsultationModal } from '../lib/enquiry';
 
 const navLinks = [
   { label: 'Home', path: '/' },
@@ -39,17 +40,16 @@ export default function Navbar() {
         <div className="container-max">
           <div className="flex items-center justify-between h-16 lg:h-[70px]">
             {/* Logo */}
-            <Link to="/" className="flex items-center gap-3 flex-shrink-0 min-w-0">
+            <Link to="/" className="flex items-center gap-2 sm:gap-3 flex-shrink-0 min-w-0">
               <img
                 src={import.meta.env.BASE_URL + 'Logo_transparent_FINVESTOGRAPHERS.png'}
                 alt="Finvestographers Logo"
-                className="h-9 w-9 object-contain flex-shrink-0"
+                className="h-8 w-8 sm:h-9 sm:w-9 object-contain flex-shrink-0"
               />
-              <img
-                src={import.meta.env.BASE_URL + 'logo_text.png'}
-                alt="Finvestographers"
-                className="h-[18px] sm:h-[20px] md:h-[22px] object-contain flex-shrink-0"
-              />
+              <span className="font-heading font-extrabold tracking-[0.18em] text-[0.95rem] sm:text-[1.05rem] md:text-[1.2rem] leading-none whitespace-nowrap">
+                <span className="text-[#00448B]">FINVESTO</span>
+                <span className="ml-1 text-[#FF6100]">GRAPHERS</span>
+              </span>
             </Link>
 
             {/* Desktop nav */}
@@ -88,9 +88,9 @@ export default function Navbar() {
               </a>
 
               {/* Book consultation CTA */}
-              <Link to="/contact" className="btn-orange text-sm py-2.5 px-5">
+              <button type="button" onClick={() => openConsultationModal({ source: 'navbar' })} className="btn-orange text-sm py-2.5 px-5">
                 Book Consultation
-              </Link>
+              </button>
             </div>
 
             {/* Mobile hamburger */}
@@ -132,9 +132,9 @@ export default function Navbar() {
                   <MessageCircle size={16} strokeWidth={2} />
                   Chat on WhatsApp
                 </a>
-                <Link to="/contact" className="btn-orange w-[calc(100%-2rem)] mx-4 justify-center text-sm">
+                <button type="button" onClick={() => openConsultationModal({ source: 'mobile-nav' })} className="btn-orange w-[calc(100%-2rem)] mx-4 justify-center text-sm">
                   Book Free Consultation
-                </Link>
+                </button>
               </div>
             </div>
           </div>

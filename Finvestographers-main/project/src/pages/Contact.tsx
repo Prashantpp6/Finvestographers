@@ -1,6 +1,8 @@
 import { useState } from 'react';
 import { MessageCircle, Phone, Calendar, CheckCircle, Clock, MapPin, Mail, Shield, Star, ArrowRight } from 'lucide-react';
 
+import { openConsultationModal, submitEnquiry } from '../lib/enquiry';
+
 const callbackSlots = ['Within 4 Hours', 'This Evening', 'This Weekend'];
 const helpOptions = ["I want to start my first SIP", "Am I investing in the right funds?", "How much do I need for retirement?", "Can I save more tax?", "Do I have enough insurance?", "I want a plan for my child's future", "I want to retire early", "Something else"];
 
@@ -40,12 +42,12 @@ export default function Contact() {
                 </div>
                 <h2 className="text-xl font-heading font-bold text-[#00448B] mb-2">Option 1 — Chat on WhatsApp</h2>
                 <p className="text-[#5C7089] font-body text-sm mb-5">70%+ of our clients reach out first on WhatsApp. It's the fastest way to connect.</p>
-                <a href="https://wa.me/918962692479" target="_blank" rel="noopener noreferrer"
+                <button type="button" onClick={() => openConsultationModal({ source: 'contact-page' })}
                   className="inline-flex items-center justify-center gap-3 text-white font-heading font-semibold py-4 px-8 rounded-2xl transition-all hover:scale-105"
                   style={{ background: '#25D366', boxShadow: '0 4px 16px rgba(37,211,102,0.3)' }}>
                   <MessageCircle size={20} strokeWidth={2} />
                   Start WhatsApp Chat
-                </a>
+                </button>
               </div>
 
               {/* Callback */}
@@ -90,9 +92,9 @@ export default function Contact() {
               <div className="card">
                 <h2 className="text-xl font-heading font-bold text-[#00448B] mb-2">Option 3 — Book a Free 20-Min Consultation</h2>
                 <p className="text-[#5C7089] font-body text-sm mb-5">Prefer a scheduled discussion? Choose a convenient slot. Video or phone — your choice.</p>
-                <a href="https://calendly.com" target="_blank" rel="noopener noreferrer" className="btn-outline justify-center py-4 w-auto inline-flex">
-                  <Calendar size={18} />Book My Slot (Calendly)<ArrowRight size={16} />
-                </a>
+                <button type="button" onClick={() => openConsultationModal({ source: 'contact-page' })} className="btn-outline justify-center py-4 w-auto inline-flex">
+                  <Calendar size={18} />Book My Slot<ArrowRight size={16} />
+                </button>
                 <div className="mt-4 flex items-center gap-2 text-sm font-body" style={{ color: '#9BAEC8' }}>
                   <Clock size={13} strokeWidth={2} />20 minutes · Free · No commitment
                 </div>
@@ -122,7 +124,21 @@ export default function Contact() {
                     </div>
                   </div>
                 ) : (
-                  <form onSubmit={(e) => { e.preventDefault(); setShortSent(true); }} className="space-y-4">
+                  <form onSubmit={async (e) => {
+                    e.preventDefault();
+                    await submitEnquiry({
+                      fullName: shortForm.name,
+                      mobile: shortForm.phone,
+                      email: '',
+                      city: '',
+                      occupation: '',
+                      interest: helpSelected || 'General enquiry',
+                      investmentAmount: '',
+                      message: shortForm.message || 'Short form enquiry',
+                      source: 'contact-page',
+                    });
+                    setShortSent(true);
+                  }} className="space-y-4">
                     <div className="grid sm:grid-cols-2 gap-4">
                       <input type="text" required placeholder="Your Name" className="input-field"
                         value={shortForm.name} onChange={(e) => setShortForm({ ...shortForm, name: e.target.value })} />
@@ -145,7 +161,7 @@ export default function Contact() {
                 <h3 className="font-heading font-bold text-white text-lg mb-5">Why Clients Trust Us</h3>
                 <div className="space-y-4">
                   {[
-                    { icon: Shield, label: 'AMFI Registered', value: 'ARN-XXXXXX' },
+                    { icon: Shield, label: 'AMFI Registered', value: 'ARN-345397' },
                     { icon: Star, label: 'Client Satisfaction', value: '98%' },
                     { icon: CheckCircle, label: 'Families Guided', value: '87+' },
                     { icon: Clock, label: 'Experience', value: '5+ Years' },
@@ -188,7 +204,7 @@ export default function Contact() {
               <div className="rounded-3xl p-5 border border-[#DDE5F0]" style={{ background: '#F7F9FC' }}>
                 <h3 className="font-heading font-bold text-[#00448B] text-sm uppercase tracking-wide mb-4">Registrations</h3>
                 {[
-                  { label: 'AMFI ARN Number', value: 'ARN-XXXXXX' },
+                  { label: 'AMFI ARN Number', value: 'ARN-345397' },
                     { label: 'NISM Series V-A', value: 'Certified' },
                     { label: 'Experience', value: '5+ Years' },
                 ].map(({ label, value }) => (
