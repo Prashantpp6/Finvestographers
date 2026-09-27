@@ -40,7 +40,7 @@ export default function Hero() {
   }, []);
 
   return (
-    <section className="relative min-h-screen flex items-center overflow-hidden bg-white pt-20">
+    <section className="relative flex min-h-screen items-center overflow-hidden bg-white pt-20">
       {/* Background decoration */}
       <div className="absolute inset-0 pointer-events-none overflow-hidden">
         <svg className="absolute inset-0 w-full h-full opacity-[0.025]" xmlns="http://www.w3.org/2000/svg">
@@ -76,10 +76,10 @@ export default function Hero() {
       </div>
 
       <div className="container-max relative z-10 py-10 lg:py-16">
-        <div className="grid lg:grid-cols-2 gap-12 xl:gap-20 items-center">
+        <div className="grid items-center gap-10 lg:grid-cols-2 lg:gap-12 xl:gap-20">
           {/* LEFT — Content */}
           <div className={`space-y-8 transition-all duration-700 ${animated ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`}>
-            <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full border text-sm font-heading font-semibold"
+            <div className="inline-flex max-w-full items-center gap-2 rounded-full border px-4 py-2 text-sm font-heading font-semibold"
               style={{ borderColor: '#C8DCEF', background: '#EBF2FA', color: '#00448B' }}>
               <span className="w-2 h-2 rounded-full animate-pulse" style={{ background: '#FF6100' }} />
               AMFI Registered Mutual Fund Distributor
@@ -98,12 +98,12 @@ export default function Hero() {
               </p>
             </div>
 
-            <div className="flex flex-wrap gap-3">
-              <button type="button" onClick={() => openConsultationModal({ interest: 'Financial Planning', source: 'hero' })} className="btn-orange text-base px-8 py-4">
+            <div className="flex flex-col gap-3 sm:flex-row sm:flex-wrap">
+              <button type="button" onClick={() => openConsultationModal({ interest: 'Financial Planning', source: 'hero' })} className="btn-orange w-full text-base sm:w-auto px-8 py-4">
                 Book Free Consultation
                 <ArrowRight size={18} />
               </button>
-              <Link to="/start-here" className="btn-outline text-base px-7 py-4">
+              <Link to="/start-here" className="btn-outline w-full text-base sm:w-auto px-7 py-4">
                 Start Here
               </Link>
             </div>

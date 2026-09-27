@@ -19,8 +19,8 @@ export default function GoalsSection() {
           <h2 className="text-display-md font-heading font-extrabold text-[#00448B] mb-4">
             Every Goal Has a Plan
           </h2>
-          <p className="text-lg text-[#5C7089] font-body max-w-2xl mx-auto text-center">
-            <span className="block whitespace-nowrap">Whatever your goal, we'll build a specific investment strategy designed around it.</span>
+          <p className="mx-auto max-w-2xl text-center text-lg text-[#5C7089] font-body">
+            <span className="block">Whatever your goal, we'll build a specific investment strategy designed around it.</span>
             <span className="block">Not a generic portfolio.</span>
           </p>
         </div>

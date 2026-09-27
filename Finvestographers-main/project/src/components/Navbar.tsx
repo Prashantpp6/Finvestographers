@@ -38,15 +38,15 @@ export default function Navbar() {
     <>
       <nav className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${navBg}`}>
         <div className="container-max">
-          <div className="flex items-center justify-between h-16 lg:h-[70px]">
+          <div className="flex items-center justify-between h-16 gap-3 lg:h-[70px]">
             {/* Logo */}
-            <Link to="/" className="flex items-center gap-2 sm:gap-3 flex-shrink-0 min-w-0">
+            <Link to="/" className="flex min-w-0 flex-1 items-center gap-2 sm:gap-3 lg:flex-none">
               <img
                 src={import.meta.env.BASE_URL + 'Logo_transparent_FINVESTOGRAPHERS.png'}
                 alt="Finvestographers Logo"
-                className="h-8 w-8 sm:h-9 sm:w-9 object-contain flex-shrink-0"
+                className="h-8 w-8 flex-shrink-0 object-contain sm:h-9 sm:w-9"
               />
-              <span className="font-heading font-extrabold tracking-[0.18em] text-[0.95rem] sm:text-[1.05rem] md:text-[1.2rem] leading-none whitespace-nowrap">
+              <span className="block overflow-hidden text-ellipsis font-heading text-[0.7rem] font-extrabold leading-none tracking-[0.12em] sm:text-[0.8rem] md:text-[1rem] lg:text-[1.2rem]">
                 <span className="text-[#00448B]">FINVESTO</span>
                 <span className="ml-1 text-[#FF6100]">GRAPHERS</span>
               </span>
@@ -95,9 +95,10 @@ export default function Navbar() {
 
             {/* Mobile hamburger */}
             <button
-              className="lg:hidden p-2 rounded-xl text-[#00448B] hover:bg-[#EBF2FA] transition-colors flex-shrink-0"
+              className="lg:hidden flex h-11 w-11 flex-shrink-0 items-center justify-center rounded-xl text-[#00448B] transition-colors hover:bg-[#EBF2FA]"
               onClick={() => setMenuOpen(!menuOpen)}
               aria-label="Toggle menu"
+              aria-expanded={menuOpen}
             >
               {menuOpen ? <X size={22} /> : <Menu size={22} />}
             </button>
@@ -106,33 +107,33 @@ export default function Navbar() {
 
         {/* Mobile drawer */}
         {menuOpen && (
-          <div className="lg:hidden bg-white border-t border-[#DDE5F0] shadow-lg">
-            <div className="container-max py-4 space-y-1">
+          <div className="border-t border-[#DDE5F0] bg-white shadow-lg lg:hidden">
+            <div className="container-max space-y-1 py-4">
               {navLinks.map((link) => (
                 <Link
                   key={link.path}
                   to={link.path}
-                  className={`flex items-center px-4 py-3 rounded-xl font-body font-medium text-sm transition-colors ${
+                  className={`flex items-center rounded-xl px-4 py-3 font-body text-sm font-medium transition-colors ${
                     isActive(link.path)
-                      ? 'bg-[#EBF2FA] text-[#00448B] font-semibold'
+                      ? 'bg-[#EBF2FA] font-semibold text-[#00448B]'
                       : 'text-[#0F1C2E] hover:bg-[#F7F9FC] hover:text-[#00448B]'
                   }`}
                 >
                   {link.label}
                 </Link>
               ))}
-              <div className="pt-3 border-t border-[#DDE5F0] mt-2 space-y-3">
+              <div className="mt-2 space-y-3 border-t border-[#DDE5F0] pt-3">
                 <a
                   href="https://wa.me/918962692479"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="flex items-center justify-center gap-2 mx-4 py-3 rounded-xl text-white text-sm font-heading font-semibold"
+                  className="mx-0 flex items-center justify-center gap-2 rounded-xl py-3 text-sm font-heading font-semibold text-white"
                   style={{ background: '#25D366', boxShadow: '0 4px 16px rgba(37,211,102,0.3)' }}
                 >
                   <MessageCircle size={16} strokeWidth={2} />
                   Chat on WhatsApp
                 </a>
-                <button type="button" onClick={() => openConsultationModal({ source: 'mobile-nav' })} className="btn-orange w-[calc(100%-2rem)] mx-4 justify-center text-sm">
+                <button type="button" onClick={() => openConsultationModal({ source: 'mobile-nav' })} className="btn-orange w-full justify-center text-sm">
                   Book Free Consultation
                 </button>
               </div>
