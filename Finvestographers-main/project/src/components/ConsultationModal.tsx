@@ -153,7 +153,9 @@ export default function ConsultationModal({ defaultInterest = '', defaultSource 
                   <Sparkles size={14} />
                   Premium consultation
                 </div>
-                <h2 className="mt-6 text-2xl font-semibold leading-tight sm:text-3xl">Let&apos;s build a financial plan that actually fits your life.</h2>
+                <h2 className="mt-6 text-2xl font-extrabold leading-tight text-[#0F1C2E] sm:text-3xl">
+                  Let&apos;s build a financial plan designed around your life.
+                </h2>
                 <p className="mt-4 max-w-md text-sm leading-7 text-blue-100/90 sm:text-base">
                   Share a few details and we’ll respond with the next best step — usually within a few working hours.
                 </p>
@@ -213,7 +215,7 @@ export default function ConsultationModal({ defaultInterest = '', defaultSource 
                     <div className="grid gap-4 sm:grid-cols-2">
                       <div>
                         <label className="mb-1.5 block text-sm font-semibold text-[#0F1C2E]">Email</label>
-                        <input type="email" className="input-field" value={form.email} onChange={(e) => setForm({ ...form, email: e.target.value })} placeholder="you@example.com" />
+                        <input type="email" className="input-field" value={form.email} onChange={(e) => setForm({ ...form, email: e.target.value })} placeholder="Your email address" />
                         {errors.email && <p className="mt-1 text-xs text-[#DC2626]">{errors.email}</p>}
                       </div>
                       <div>

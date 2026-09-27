@@ -35,7 +35,7 @@ export function buildWhatsAppUrl(data: EnquiryData) {
     `Message: ${data.message || 'N/A'}`,
   ].join('\n');
 
-  return `https://wa.me/919622639164?text=${encodeURIComponent(message)}`;
+  return `https://wa.me/918962692479?text=${encodeURIComponent(message)}`;
 }
 
 export function buildMailtoUrl(data: EnquiryData) {
@@ -51,7 +51,7 @@ export function buildMailtoUrl(data: EnquiryData) {
     `Message: ${data.message || 'N/A'}`,
   ].join('\n'));
 
-  return `mailto:finvestographers@gmail.com?subject=${subject}&body=${body}`;
+  return `mailto:Finvestographers@gmail.com?subject=${subject}&body=${body}`;
 }
 
 export function persistEnquiry(data: EnquiryData) {
@@ -89,7 +89,7 @@ export async function submitEnquiry(data: EnquiryData) {
           interest: data.interest,
           investment_amount: data.investmentAmount,
           message: data.message,
-          to_email: 'finvestographers@gmail.com',
+          to_email: 'Finvestographers@gmail.com',
         },
         import.meta.env.VITE_EMAILJS_PUBLIC_KEY,
       );

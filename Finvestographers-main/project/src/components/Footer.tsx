@@ -51,7 +51,7 @@ export default function Footer() {
               Helping individuals, families and businesses achieve financial goals through disciplined long-term investing.
             </p>
             <div className="flex gap-3">
-              <a href="https://instagram.com" target="_blank" rel="noopener noreferrer"
+              <a href="https://www.instagram.com/finvestographers?stkn=MTh3YnA5ZWpkMG03" target="_blank" rel="noopener noreferrer"
                 className="w-9 h-9 rounded-xl flex items-center justify-center transition-colors"
                 style={{ background: 'rgba(255,255,255,0.08)' }}
                 onMouseEnter={(e) => (e.currentTarget.style.background = '#FF6100')}
@@ -115,7 +115,7 @@ export default function Footer() {
             <h4 className="font-heading font-semibold text-white text-sm uppercase tracking-wider mb-5">Contact</h4>
             <ul className="space-y-4">
               {[
-                { icon: Phone, label: 'Mob- 8962692479', href: 'tel:+918962692479' },
+                { icon: Phone, label: '+91 89626 92479', href: 'tel:+918962692479' },
                 { icon: Mail, label: 'Email- Finvestographers@gmail.com', href: 'mailto:Finvestographers@gmail.com' },
                 { icon: MapPin, label: 'Address - Indore, India', href: undefined },
               ].map(({ icon: Icon, label, href }) => (

@@ -64,8 +64,8 @@ export default function LeadMagnet() {
                 }} className="space-y-4">
                   {[
                     { label: 'Your Name', type: 'text', placeholder: 'Rahul Sharma', key: 'name' },
-                    { label: 'Phone Number', type: 'tel', placeholder: 'Mob- 8962692479', key: 'phone' },
-                    { label: 'Email Address', type: 'email', placeholder: 'rahul@example.com', key: 'email' },
+                    { label: 'Phone Number', type: 'tel', placeholder: '+91 89626 92479', key: 'phone' },
+                    { label: 'Email Address', type: 'email', placeholder: 'Your email address', key: 'email' },
                   ].map(({ label, type, placeholder, key }) => (
                     <div key={key}>
                       <label className="block text-sm font-heading font-semibold text-[#0F1C2E] mb-1.5">{label}</label>

@@ -9,9 +9,17 @@ const helpOptions = ["I want to start my first SIP", "Am I investing in the righ
 export default function Contact() {
   const [callbackForm, setCallbackForm] = useState({ phone: '', slot: '' });
   const [callbackSent, setCallbackSent] = useState(false);
-  const [helpSelected, setHelpSelected] = useState('');
+  const [helpSelected, setHelpSelected] = useState<string[]>([]);
   const [shortForm, setShortForm] = useState({ name: '', phone: '', message: '' });
   const [shortSent, setShortSent] = useState(false);
+
+  const toggleHelpOption = (option: string) => {
+    setHelpSelected((current) =>
+      current.includes(option)
+        ? current.filter((item) => item !== option)
+        : [...current, option],
+    );
+  };
 
   return (
     <main className="pt-24">
@@ -105,15 +113,29 @@ export default function Contact() {
                 <h2 className="text-xl font-heading font-bold text-[#00448B] mb-2">Option 4 — What Would You Like Help With?</h2>
                 <p className="text-[#5C7089] font-body text-sm mb-5">Tell us what's on your mind and we'll come prepared.</p>
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 mb-5">
-                  {helpOptions.map((opt) => (
-                    <label key={opt}
-                      className="flex items-center gap-3 p-3 rounded-xl border cursor-pointer transition-all"
-                      style={{ borderColor: helpSelected === opt ? '#00448B' : '#DDE5F0', background: helpSelected === opt ? '#EBF2FA' : 'white' }}>
-                      <input type="radio" name="help" value={opt} checked={helpSelected === opt}
-                        onChange={() => setHelpSelected(opt)} className="flex-shrink-0" style={{ accentColor: '#00448B' }} />
-                      <span className="text-sm font-body text-[#0F1C2E]">{opt}</span>
-                    </label>
-                  ))}
+                  {helpOptions.map((opt) => {
+                    const isSelected = helpSelected.includes(opt);
+                    return (
+                      <label
+                        key={opt}
+                        className="flex cursor-pointer items-center gap-3 rounded-xl border p-3 transition-all duration-200"
+                        style={{
+                          borderColor: isSelected ? '#00448B' : '#DDE5F0',
+                          background: isSelected ? '#EBF2FA' : 'white',
+                        }}
+                      >
+                        <input
+                          type="checkbox"
+                          name="help"
+                          value={opt}
+                          checked={isSelected}
+                          onChange={() => toggleHelpOption(opt)}
+                          className="h-4 w-4 flex-shrink-0 rounded border-[#DDE5F0] accent-[#00448B]"
+                        />
+                        <span className="text-sm font-body text-[#0F1C2E]">{opt}</span>
+                      </label>
+                    );
+                  })}
                 </div>
                 {shortSent ? (
                   <div className="flex items-center gap-3 p-4 rounded-2xl" style={{ background: '#F0FDF4' }}>
@@ -132,7 +154,7 @@ export default function Contact() {
                       email: '',
                       city: '',
                       occupation: '',
-                      interest: helpSelected || 'General enquiry',
+                      interest: helpSelected.length ? helpSelected.join(', ') : 'General enquiry',
                       investmentAmount: '',
                       message: shortForm.message || 'Short form enquiry',
                       source: 'contact-page',
@@ -183,7 +205,7 @@ export default function Contact() {
               <div className="card space-y-4">
                 <h3 className="font-heading font-bold text-[#00448B] text-lg">Contact Details</h3>
                 {[
-                  { icon: Phone, label: 'Phone', value: 'Mob- 8962692479', href: 'tel:+918962692479' },
+                  { icon: Phone, label: 'Phone', value: '+91 89626 92479', href: 'tel:+918962692479' },
                   { icon: Mail, label: 'Email', value: 'Email- Finvestographers@gmail.com', href: 'mailto:Finvestographers@gmail.com' },
                   { icon: MapPin, label: 'Location', value: 'Address - Indore, India', href: undefined },
                 ].map(({ icon: Icon, label, value, href }) => (
